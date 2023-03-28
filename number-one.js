@@ -9,15 +9,18 @@ nombreUser = prompt("Porfavor ingrese su nombre")
 do
 {
     precioItem = parseFloat(prompt("Ingrese precio del item"));
-    if(precio <= 0)
+    while(precioItem <=0)
     {
-        alert(`El precio no puede ser 0 o menor a 0!`);
+        precioItem = parseFloat(prompt("precio invalido, vuelva a ingresarlo"));
     }
-    else{
-        cantidad = parseInt(prompt("ingrese su cantidad"));
-        total = total + precioItem*cantidad;
-        seguir = prompt ("Desea ingresar otro item? s/n");
+    cantidad = parseInt(prompt("ingrese su cantidad"));
+    while(cantidad <= 0)
+    {
+        cantidad = parseInt(prompt("cantidad invalida, vuelve a ingresarla"));
     }
+    total = total + precioItem*cantidad;
+    seguir = prompt ("Desea ingresar otro item? s/n");
+    
 }while(seguir == 's');
 
 alert(`El total es: ${total}`);
